@@ -57,18 +57,6 @@ make install INSTALL_ROOT=%{buildroot}
 make install_docs INSTALL_ROOT=%{buildroot}
 %endif
 
-# hardlink files to {_bindir}, add -qt5 postfix to not conflict
-mkdir %{buildroot}%{_opt_qt5_bindir}
-pushd %{buildroot}%{_opt_qt5_bindir}
-for i in * ; do
-  case "${i}" in
-    *)
-      ln -v  ${i} %{buildroot}%{_opt_qt5_bindir}/${i}
-      ;;
-  esac
-done
-popd
-
 ## .prl/.la file love
 # nuke .prl reference(s) to %%buildroot, excessive (.la-like) libs
 pushd %{buildroot}%{_opt_qt5_libdir}
@@ -88,7 +76,6 @@ popd
 
 %files
 %license LICENSE.GPL* LICENSE.LGPL*
-%{_opt_qt5_bindir}/sdpscanner
 %{_opt_qt5_bindir}/sdpscanner
 %{_opt_qt5_libdir}/libQt5Bluetooth.so.5*
 %{_opt_qt5_archdatadir}/qml/QtBluetooth/
