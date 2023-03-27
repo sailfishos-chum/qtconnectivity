@@ -12,6 +12,7 @@ Source0: %{name}-%{version}.tar.bz2
 
 # filter qml provides
 %global __provides_exclude_from ^%{_opt_qt5_archdatadir}/qml/.*\\.so$
+%{?opt_qt5_default_filter}
 
 BuildRequires: make
 BuildRequires: opt-qt5-qtbase-devel >= %{qt_version}
@@ -19,6 +20,7 @@ BuildRequires: opt-qt5-qtbase-private-devel >= %{qt_version}
 %{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}
 BuildRequires: opt-qt5-qtdeclarative-devel >= %{qt_version}
 BuildRequires: pkgconfig(bluez)
+Requires: opt-qt5-qtdeclarative >= %{qt_version}
 
 %description
 %{summary}.
