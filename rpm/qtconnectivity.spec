@@ -1,8 +1,8 @@
-%global qt_version 5.15.9
+%global qt_version 5.15.10
 
 Summary: Qt5 - Connectivity components
 Name: opt-qt5-qtconnectivity
-Version: 5.15.9+kde5
+Version: 5.15.10+kde4
 Release: 1%{?dist}
 
 # See LICENSE.GPL3, respectively, for exception details
